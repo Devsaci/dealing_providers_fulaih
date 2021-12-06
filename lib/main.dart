@@ -40,7 +40,9 @@ class MyHomePage extends StatelessWidget {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          Provider.of<MyProvider>(context).count;
+        },
         child: const Icon(Icons.add),
       ),
     );
