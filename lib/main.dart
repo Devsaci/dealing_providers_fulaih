@@ -26,6 +26,7 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //branche Var OBj
     var obj = Provider.of<MyProvider>(context, listen: true);
     return Scaffold(
       appBar: AppBar(
