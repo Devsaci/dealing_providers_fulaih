@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: true,
+      debugShowCheckedModeBanner: false,
       home: ChangeNotifierProvider(
         create: (_) => MyProvider(),
         child: MyHomePage(),
@@ -35,12 +35,12 @@ class MyHomePage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text('You have pushed the button this many times:'),
-            Text('${Provider.of<MyProvider>(context).count}', style: TextStyle(fontSize: 50)),
+            Text('${Provider.of<MyProvider>(context, listen: true).count}', style: TextStyle(fontSize: 50)),
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () => Provider.of<MyProvider>(context).count,
+        onPressed: () => Provider.of<MyProvider>(context, listen: false).increment(),
         child: const Icon(Icons.add),
       ),
     );
