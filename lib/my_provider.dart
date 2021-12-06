@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-mixin MyProvider implements ChangeNotifier {
+ class MyProvider with ChangeNotifier {
   int _count = 0;
 
   int get count => _count;

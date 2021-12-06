@@ -1,17 +1,20 @@
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
+import 'my_provider.dart';
 
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+   const MyApp({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: true,
       home: ChangeNotifierProvider(
-        create: (BuildContext context) {},
+        create: (_) => MyProvider(),
         child: MyHomePage(),
       ),
     );
@@ -19,7 +22,7 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatelessWidget {
-  const MyHomePage({Key? key}) : super(key: key);
+   MyHomePage({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
