@@ -35,7 +35,7 @@ class MyHomePage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text('You have pushed the button this many times:'),
-            Text('${0}', style: TextStyle(fontSize: 50)),
+            Text('${Provider.of<MyProvider>(context).count}', style: TextStyle(fontSize: 50)),
           ],
         ),
       ),
