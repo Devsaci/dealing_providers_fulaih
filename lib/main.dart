@@ -13,10 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: ChangeNotifierProvider(
-        create: (_) => MyProvider(),
-        child: MyHomePage(),
-      ),
+      home: MyHomePage(),
     );
   }
 }
@@ -26,7 +23,6 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var obj = Provider.of<MyProvider>(context, listen: true);
     return Scaffold(
       appBar: AppBar(
         title: Text("Dealing with Providers"),
@@ -36,7 +32,7 @@ class MyHomePage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text('You have pushed the button this many times:'),
-            Text('${obj.count}', style: TextStyle(fontSize: 50)),
+            Text('${Provider.of<MyProvider>(context, listen: true).count}', style: TextStyle(fontSize: 50)),
           ],
         ),
       ),
