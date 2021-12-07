@@ -31,7 +31,7 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var obj = Provider.of<MyProvider>(context, listen: true);
+    // var obj = Provider.of<MyProvider>(context, listen: true);
     return Scaffold(
       appBar: AppBar(
         title: Text("Dealing with Providers"),
@@ -41,13 +41,13 @@ class MyHomePage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text('You have pushed the button this many times:'),
-            Text('${obj.count}', style: TextStyle(fontSize: 50)),
+            Text('${context.watch<MyProvider>().count}', style: TextStyle(fontSize: 50)),
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () =>
-            Provider.of<MyProvider>(context, listen: false).increment(),
+            context.read<MyProvider>().increment(),
         child: const Icon(Icons.add),
       ),
     );
