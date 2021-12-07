@@ -41,13 +41,17 @@ class MyHomePage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text('You have pushed the button this many times:'),
-            Text('${context.watch<MyProvider>().count}', style: TextStyle(fontSize: 50)),
+            Consumer<MyProvider>(
+              builder: (ctx, value, child) => Text(
+                '${value.count}',
+                style: TextStyle(fontSize: 50),
+              ),
+            ),
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () =>
-            context.read<MyProvider>().increment(),
+        onPressed: () => context.read<MyProvider>().increment(),
         child: const Icon(Icons.add),
       ),
     );
