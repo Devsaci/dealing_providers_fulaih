@@ -1,28 +1,29 @@
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'my_provider.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(
+      MultiProvider(
+        providers: [],
+        child: MyApp(),
+      ),
+    );
 
 class MyApp extends StatelessWidget {
-   const MyApp({Key key}) : super(key: key);
+  const MyApp({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: ChangeNotifierProvider(
-        create: (_) => MyProvider(),
-        child: MyHomePage(),
-      ),
+      home: MyHomePage(),
     );
   }
 }
 
 class MyHomePage extends StatelessWidget {
-   MyHomePage({Key key}) : super(key: key);
+  MyHomePage({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +42,8 @@ class MyHomePage extends StatelessWidget {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () => Provider.of<MyProvider>(context, listen: false).increment(),
+        onPressed: () =>
+            Provider.of<MyProvider>(context, listen: false).increment(),
         child: const Icon(Icons.add),
       ),
     );
