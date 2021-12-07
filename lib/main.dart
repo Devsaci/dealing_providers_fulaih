@@ -14,10 +14,7 @@ class MyApp extends StatelessWidget {
     //SecondMethode
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: ChangeNotifierProvider(
-        create: (_) => MyProvider(),
-        child: MyHomePage(),
-      ),
+      home: MyHomePage(),
     );
   }
 }
@@ -28,22 +25,26 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var obj = Provider.of<MyProvider>(context, listen: true);
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Dealing with Providers"),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text('You have pushed the button this many times:'),
-            Text('${obj.count}', style: TextStyle(fontSize: 50)),
-          ],
+    //SecondMethode
+    return ChangeNotifierProvider(
+      create: (BuildContext context) { MyProvider(); },
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text("Dealing with Providers"),
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => Provider.of<MyProvider>(context, listen: false).increment(),
-        child: const Icon(Icons.add),
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text('You have pushed the button this many times:'),
+              Text('${obj.count}', style: TextStyle(fontSize: 50)),
+            ],
+          ),
+        ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () => Provider.of<MyProvider>(context, listen: false).increment(),
+          child: const Icon(Icons.add),
+        ),
       ),
     );
   }
