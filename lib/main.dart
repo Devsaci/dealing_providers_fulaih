@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 import 'my_provider.dart';
 
 void main() => runApp(ChangeNotifierProvider<MyProvider>(
-      create: (BuildContext context) => MyProvider(),
+      create: (ctx) => MyProvider(),
       child: MyApp(),
     ));
 
@@ -25,6 +25,7 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var obj = Provider.of<MyProvider>(context, listen: true);
     return Scaffold(
       appBar: AppBar(
         title: Text("Dealing with Providers"),
@@ -34,7 +35,7 @@ class MyHomePage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text('You have pushed the button this many times:'),
-            Text('${Provider.of<MyProvider>(context, listen: true).count}',
+            Text('${obj.count}',
                 style: TextStyle(fontSize: 50)),
           ],
         ),
