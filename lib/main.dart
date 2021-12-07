@@ -11,6 +11,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //SecondMethode
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: ChangeNotifierProvider(
