@@ -26,6 +26,7 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var obj = Provider.of<MyProvider>(context, listen: true);
+    var objListFals = Provider.of<MyProvider>(context, listen: false);
     return Scaffold(
       appBar: AppBar(
         title: Text("Dealing with Providers"),
@@ -42,7 +43,7 @@ class MyHomePage extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () =>
-            Provider.of<MyProvider>(context, listen: false).increment(),
+            objListFals.increment(),
         child: const Icon(Icons.add),
       ),
     );
