@@ -28,7 +28,7 @@ class MyHomePage extends StatelessWidget {
     //SecondMethode
     return ChangeNotifierProvider(
       create: (_) => MyProvider(),
-      builder: (context, _) => Scaffold(
+      builder: (context, child) => Scaffold(
         appBar: AppBar(
           title: Text("Dealing with Providers"),
         ),
